@@ -1,0 +1,144 @@
+Images:
+
+Tables
+	with bread
+	with cut bread
+	with meat
+	with roast meat
+	with burnt meat
+	with cheese
+	with cut cheese
+	with salad
+	with cut salad
+	with bacon
+	with cut bacon
+	with roast bacon
+	with burnt bacon
+	with onion
+	with cut onion
+	with chopped (cut cut) onion
+	with fried onion
+	with burnt onion
+	with sauce
+	with tomato
+	with cut tomato
+	with cucumber
+	with cut cucumber
+	with oil
+	with potato
+	with cut potato
+	with fried potato
+	with burnt potato
+	with empty glass
+	with full glass
+Floor
+	with player1
+		with bread
+		with cut bread
+		with meat
+		with roast meat
+		with burnt meat
+		with cheese
+		with cut cheese
+		with salad
+		with cut salad
+		with bacon
+		with cut bacon
+		with roast bacon
+		with burnt bacon
+		with onion
+		with cut onion
+		with chopped (cut cut) onion
+		with fried onion
+		with burnt onion
+		with sauce
+		with tomato
+		with cut tomato
+		with cucumber
+		with cut cucumber
+		with oil
+		with potato
+		with cut potato
+		with fried potato
+		with burnt potato
+		with empty glass
+		with full glass
+	with player2
+		with bread
+		with cut bread
+		with meat
+		with roast meat
+		with burnt meat
+		with cheese
+		with cut cheese
+		with salad
+		with cut salad
+		with bacon
+		with cut bacon
+		with roast bacon
+		with burnt bacon
+		with onion
+		with cut onion
+		with chopped (cut cut) onion
+		with fried onion
+		with burnt onion
+		with sauce
+		with tomato
+		with cut tomato
+		with cucumber
+		with cut cucumber
+		with oil
+		with potato
+		with cut potato
+		with fried potato
+		with burnt potato
+		with empty glass
+		with full glass
+Grill
+	with meat
+	with roast meat
+	with burnt meat
+	with bacon
+	with roast bacon
+	with burnt bacon
+DeepFryer
+	with oil
+	with chopped onion
+	with fried onion
+	with burnt onion
+	with cut potato
+	with fried potato
+	with burnt potato
+Output
+Cutting Board
+	with bread
+	with cut bread
+	with cheese
+	with cut cheese
+	with salad
+	with cut salad
+	with bacon
+	with cut bacon
+	with onion
+	with cut onion
+	with chopped (cut cut) onion
+	with tomato
+	with cut tomato
+	with cucumber
+	with cut cucumber
+	with potato
+	with cut potato
+Trash
+Bread Container
+Meat Container
+Cheese Container
+Salad Container
+Bacon Container
+Onion Container
+Sauce Machine
+Tomato Container
+Cucumber Container
+Oil Container
+Potato Containter
+Glasses Container
+Drink Machine

@@ -5,8 +5,68 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="OECOOKED" Height="450" Width="800">
+    <Grid HorizontalAlignment="Stretch" Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
 
+        <Label Content="OECOOKED the game" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="51" FontFamily="Arial" Foreground="Chocolate"/>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12*"/>
+                <ColumnDefinition Width="4*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="1">
+                <Button Content="New game" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+                <Button Content="Load game" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+                <Button Content="Controls" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+                <Button Content="Settings" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+                <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+            </StackPanel>
+
+            <StackPanel Grid.Column="0">
+                <Label Content="Scoreboard" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10"/>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Name" Margin="5" FontSize="25" Width="110" Foreground="Chocolate" HorizontalContentAlignment="Center"/>
+                    <Label Content="Point" Margin="5" FontSize="25" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="Time" Margin="5" FontSize="25" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="Level" Margin="5" FontSize="25" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Józsi" Margin="5" FontSize="20" Width="110" Foreground="Chocolate" HorizontalContentAlignment="Center"/>
+                    <Label Content="989" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="1:25" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="4" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Anna" Margin="5" FontSize="20" Width="110" Foreground="Chocolate" HorizontalContentAlignment="Center"/>
+                    <Label Content="879" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="1:46" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="4" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Gábor" Margin="5" FontSize="20" Width="110" Foreground="Chocolate" HorizontalContentAlignment="Center"/>
+                    <Label Content="697" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="2:05" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="3" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+                    <Label Content="Zoli" Margin="5" FontSize="20" Width="110" Foreground="Chocolate" HorizontalContentAlignment="Center"/>
+                    <Label Content="431" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="2:35" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                    <Label Content="2" Margin="5" FontSize="20" Foreground="Chocolate" Width="110" HorizontalContentAlignment="Center"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

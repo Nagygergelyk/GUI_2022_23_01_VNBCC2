@@ -12,7 +12,6 @@
     <Folder Include="Controller\" />
     <Folder Include="Services\" />
     <Folder Include="Renderer\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
 
 </Project>

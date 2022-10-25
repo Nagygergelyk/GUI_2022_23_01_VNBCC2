@@ -32,15 +32,15 @@
                 <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
             </StackPanel>
 
-            <Grid>
+            <Grid Margin="10,0,10,10">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="15*"/>
+                    <RowDefinition Height="60*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Content="Scoreboard" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10"/>
+                <Label Grid.Row="0" Content="Scoreboard" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10,10,10,16" Height="45.253"/>
 
-                <ListBox Grid.Row="1" Foreground="Bisque">
+                <ListBox Grid.Row="1" Background="Bisque">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
@@ -51,7 +51,6 @@
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
-
                 </ListBox>
             </Grid>
         </Grid>

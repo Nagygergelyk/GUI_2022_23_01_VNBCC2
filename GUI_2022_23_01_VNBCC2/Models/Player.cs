@@ -9,8 +9,14 @@ namespace GUI_2022_23_01_VNBCC2.Models
     public class Player
     {
         public string Name { get; set; }
-        public int Score { get; set; }  //calculated from time, created food and reach level
-        public DateTime Time { get; set; }  //??
+        public double Score    //calculated from time, created foods number and reach level
+        {
+            get
+            {
+                return  Math.Round(Time * Level, 0);
+            }
+        }  
+        public double Time { get; set; }  // ?DateTime?
         public int Level { get; set; }  //reached level
 
         public Player(string name)

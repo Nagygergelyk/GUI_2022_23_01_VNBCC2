@@ -18,7 +18,6 @@
 
         <Label Content="OECOOKED the game" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" FontSize="51" FontFamily="Arial" Foreground="Chocolate"/>
 
-
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="12*"/>

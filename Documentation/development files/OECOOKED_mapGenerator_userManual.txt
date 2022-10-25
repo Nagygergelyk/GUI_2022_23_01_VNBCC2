@@ -1,0 +1,53 @@
+MapGenerator:
+T - table
+F - floor
+G - grill
+D - deep fryer
+O - output
+S - start
+C - cutting board
+X - trash
+
+1 - bread
+2 - meat
+3 - cheese
+4 - salad
+5 - bacon
+6 - onion
+7 - sauce
+8 - tomato
+9 - cucumber
+A - oil
+B - potato
+E - glasses
+H - drink
+
+First line is the level
+12x9 map size
+
+
+Example:
+
+10
+T3456789TDTT
+1FFFFFFFFFFT
+2FFFFFFFFFFG
+BFFFFFFFFFFG
+AFFFFXTCTCTT
+EFFFFFFFFFFT
+TFFFFFFFFFFO
+TFFFFFFFFFFT
+TTHTTTTTTTTT
+
+Example2:
+
+1
+TTTTTTTTTTT
+TFFFFFFFFFT
+1FFFFFFFFFT
+TFFFFFFFFFG
+2FFFFFFFFFT
+TFFFFFFFFFO
+CFFFFFFFFFT
+TFFFFFFFFFT
+TTTTTXTTTTT

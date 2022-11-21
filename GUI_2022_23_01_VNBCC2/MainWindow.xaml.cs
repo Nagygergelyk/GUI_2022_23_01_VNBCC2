@@ -24,5 +24,10 @@ namespace GUI_2022_23_01_VNBCC2
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

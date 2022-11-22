@@ -1,7 +1,9 @@
-﻿using System;
+﻿using GUI_2022_23_01_VNBCC2.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,9 +15,12 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         {
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bread, meat, cheese, salad, bacon, onion, sauce, tomato, cucumber, oil, potato, glasses, drink
         }
-        public enum Directions { up, down, left, right }
+        public enum Actions { up, down, left, right, space }
         public Items[,] GameMatrix { get; set; }
         private Queue<string> levels;
+        public Player[] ActualPlayers{ get; set; }
+
+
         public GameLogic()
         {
             var lvls = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
@@ -68,17 +73,19 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                     return Items.floor;
             }
         }
-        public void Move(Directions direction)
+        public void Move(Actions action)
         {
-            switch (direction)
+            switch (action)
             {
-                case Directions.up:
+                case Actions.up:
                     break;
-                case Directions.down:
+                case Actions.down:
                     break;
-                case Directions.left:
+                case Actions.left:
                     break;
-                case Directions.right:
+                case Actions.right:
+                    break;
+                case Actions.space:
                     break;
                 default:
                     break;

@@ -11,12 +11,18 @@ using System.Windows.Input;
 
 namespace GUI_2022_23_01_VNBCC2.ViewModels
 {
-    internal class NewGameWindowViewModel : ObservableRecipient
+    public class NewGameWindowViewModel : ObservableRecipient
     {
+        public Player[] ActualPlayers { get; set; }
 
         public NewGameWindowViewModel()
         {
-            
+               
+        }
+
+        public void Setup(Player[] actualPlayers)
+        {
+            this.ActualPlayers = actualPlayers;
         }
     }
 }

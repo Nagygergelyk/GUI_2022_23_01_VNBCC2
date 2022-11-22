@@ -23,11 +23,11 @@ namespace GUI_2022_23_01_VNBCC2
         Player[] players;
         public Player[] Players { get; set; }
 
-        public NewGameWindow()
+        public NewGameWindow(Player[] players)
         {
             InitializeComponent();
 
-            players = new Player[2];
+            this.players = players;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

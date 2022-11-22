@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_2022_23_01_VNBCC2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace GUI_2022_23_01_VNBCC2.Services
 {
     public interface INewGameWindowService
     {
-        void CreateGame();
+        void CreateGame(ref Player[] players);
     }
 }

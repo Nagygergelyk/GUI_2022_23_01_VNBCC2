@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_2022_23_01_VNBCC2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Services
 {
-    internal class NewGameViaWindow : INewGameWindowService
+    public class NewGameViaWindow : INewGameWindowService
     {
-        public void CreateGame()
+        public void CreateGame(ref Player[] players)
         {
-            new NewGameWindow().ShowDialog();
+            new NewGameWindow(players).ShowDialog();
         }
     }
 }

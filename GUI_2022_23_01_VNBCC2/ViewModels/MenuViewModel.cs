@@ -17,6 +17,7 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
     {
         MenuLogic logic;
         public BindingList<Player> Players { get; set; } //contains players
+        public BindingList<Player> Scoreboard { get; set; }
         string menuTitle = "Scoreboard";
         public string MenuTitle
         {
@@ -40,9 +41,7 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
             this.logic = logic;
 
             CreateNewGameCommand = new RelayCommand(() => {
-                //this.MenuTitle = "Create new game";
-                NewGameWindow ngw = new NewGameWindow();
-                ngw.ShowDialog();
+                logic.NewGame();
             });
 
             LoadGameCommand = new RelayCommand(() =>

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         xmlns:vms="clr-namespace:GUI_2022_23_01_VNBCC2.ViewModels"
         mc:Ignorable="d"
-        Title="NewGameWindow" Height="375" Width="400">
+        Title="OECOOKED" Height="375" Width="400">
     <Window.DataContext>
         <vms:NewGameWindowViewModel/>
     </Window.DataContext>

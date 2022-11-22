@@ -40,7 +40,7 @@
 
                 <Label x:Name="MenuTitle" Grid.Row="0" Content="{Binding MenuTitle}" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10,10,10,10"/>
 
-                <ListBox x:Name="lb_info" Background="Bisque" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,70,10,10" Grid.RowSpan="2" >
+                <ListBox x:Name="lb_info" Background="Bisque" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,70,10,10" Grid.RowSpan="2" ItemsSource="{Binding Scoreboard}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">

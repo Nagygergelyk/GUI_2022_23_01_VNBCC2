@@ -8,7 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Images\" />
-    <Folder Include="Logic\" />
     <Folder Include="Controller\" />
     <Folder Include="Services\" />
     <Folder Include="Renderer\" />

@@ -7,6 +7,7 @@ O - output
 S - start
 C - cutting board
 X - trash
+P - plate
 
 1 - bread
 2 - meat

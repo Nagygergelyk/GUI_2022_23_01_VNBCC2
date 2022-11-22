@@ -25,22 +25,22 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1">
-                <Button Content="New game" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
-                <Button Content="Load game" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
-                <Button Content="Controls" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
-                <Button Content="Settings" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
-                <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate"/>
+                <Button Content="New game" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding CreateNewGameCommand}"/>
+                <Button Content="Load game" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding LoadGameCommand}"/>
+                <Button Content="Controls" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding ControlsCommand}"/>
+                <Button Content="Settings" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding SettingsCommand}"/>
+                <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Click="Button_Click"/>
             </StackPanel>
 
-            <Grid Margin="10,0,10,10">
+            <Grid x:Name="infoGrid" Margin="10,0,10,10">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="15*"/>
                     <RowDefinition Height="60*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Content="Scoreboard" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10,10,10,10"/>
+                <Label x:Name="MenuTitle" Grid.Row="0" Content="{Binding MenuTitle}" Background="Chocolate" FontSize="25" HorizontalContentAlignment="Center" Margin="10,10,10,10"/>
 
-                <ListBox Background="Bisque" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,70,10,10" Grid.RowSpan="2" >
+                <ListBox x:Name="lb_info" Background="Bisque" ScrollViewer.VerticalScrollBarVisibility="Visible" Margin="10,70,10,10" Grid.RowSpan="2" ItemsSource="{Binding Scoreboard}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">

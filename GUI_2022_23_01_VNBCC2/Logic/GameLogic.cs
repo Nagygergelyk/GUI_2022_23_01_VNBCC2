@@ -1,28 +1,29 @@
-﻿using System;
+﻿using GUI_2022_23_01_VNBCC2.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
 {
-    public class GameLogic : IGameModel, IGameControl
+    public class GameLogic //: IGameModel, IGameControl
     {
         public enum Items
         {
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bread, meat, cheese, salad, bacon, onion, sauce, tomato, cucumber, oil, potato, glasses, drink
         }
-        public enum Directions
-        {
-            up, down, left, right
-        }
-
+        public enum Actions { up, down, left, right, space }
         public Items[,] GameMatrix { get; set; }
         private Queue<string> levels;
+        public Player[] ActualPlayers{ get; set; }
+
+
         public GameLogic()
         {
-            var lvls =  Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
+            var lvls = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
             foreach (var item in lvls)
             {
                 levels.Enqueue(item);
@@ -73,6 +74,29 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 default:
                     return Items.floor;
             }
+        }
+        public void Move(Actions action)
+        {
+            switch (action)
+            {
+                case Actions.up:
+                    break;
+                case Actions.down:
+                    break;
+                case Actions.left:
+                    break;
+                case Actions.right:
+                    break;
+                case Actions.space:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        int[] WhereAmI()
+        {
+            return default;
         }
     }
 }

@@ -1,0 +1,49 @@
+These are the different ingredients for the different levels:
+First level:
+Bread
+Meat
+Cheese
+Salad
+
+Second level:
+Bread
+Meat
+Cheese
+Salad
+Bacon
+
+Third level:
+Bread
+Meat
+Cheese
+Salad
+Bacon
+Onion
+Sauce
+
+
+Fourth level:
+Bread
+Meat
+Salad
+Cheese
+Bacon
+Onion
+Sauce
+Tomato
+Cucumber
+
+Fifth level:
+Bread
+Meat
+Salad
+Cheese
+Bacon
+Onion
+Sauce
+Tomato
+Cucumber
+Oil
+Potato
+Glasses
+Drink

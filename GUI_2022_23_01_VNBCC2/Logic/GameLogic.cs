@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
 {
-    public class GameLogic //: IGameModel, IGameControl
+    public class GameLogic : IGameModel, IGameControl
     {
         public enum Items
         {
@@ -23,6 +23,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
         public GameLogic()
         {
+            levels = new Queue<string>();
             var lvls = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
             foreach (var item in lvls)
             {

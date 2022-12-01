@@ -68,43 +68,43 @@ namespace GUI_2022_23_01_VNBCC2.Renderer
                             case GameLogic.Items.plate:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.bread:
+                            case GameLogic.Items.bunContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.meat:
+                            case GameLogic.Items.pattyContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.cheese:
+                            case GameLogic.Items.cheeseContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.salad:
+                            case GameLogic.Items.lettuceContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.bacon:
+                            case GameLogic.Items.baconContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.onion:
+                            case GameLogic.Items.onionContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.sauce:
+                            case GameLogic.Items.sauceContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.tomato:
+                            case GameLogic.Items.tomatoContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.cucumber:
+                            case GameLogic.Items.cucumberContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.oil:
+                            case GameLogic.Items.oilContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.potato:
+                            case GameLogic.Items.potatoContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.glasses:
+                            case GameLogic.Items.glassContainer:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.drink:
+                            case GameLogic.Items.drinkTap:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("Images", $"{model.GameMatrix[i,j].Image}"), UriKind.RelativeOrAbsolute)));
                                 break;
                             default:

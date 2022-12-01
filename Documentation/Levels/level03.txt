@@ -1,0 +1,9 @@
+T	T	T	5	T	T	X	T	T	O	T	T
+C	f	f	f	f	f	f	T	f	f	f	T
+6	f	f	f	f	f	f	T	f	f	f	7
+C	f	f	T	f	f	f	P	f	f	f	T
+T	f	f	C	f	S	f	T	f	f	f	G
+3	f	f	C	f	f	f	T	f	f	f	T
+T	f	f	T	f	f	f	f	f	f	f	T
+T	f	f	T	f	f	f	f	f	f	f	4
+T	C	C	1	C	C	2	C	C	T	T	T

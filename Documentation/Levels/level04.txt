@@ -1,0 +1,9 @@
+T	8	T	T	T	X	X	T	T	O	T	T
+1	f	f	f	T	f	f	T	f	f	f	T
+2	f	f	f	P	f	f	T	f	f	f	T
+3	f	f	f	f	f	f	f	f	f	f	T
+4	f	f	f	T	f	S	T	f	f	f	G
+5	f	f	f	C	f	f	C	f	f	f	T
+6	f	f	f	C	f	f	C	f	f	f	T
+7	f	f	f	T	f	f	T	f	f	f	T
+T	9	C	T	T	C	C	T	T	C	T	T

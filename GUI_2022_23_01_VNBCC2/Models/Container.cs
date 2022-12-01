@@ -10,12 +10,14 @@ namespace GUI_2022_23_01_VNBCC2.Models
     public class Container : Item
     {
         Item storedItem;
+        bool stored = false;
         public Item StoredItem
         {
             get
             {
-                if (storedItem != null)
+                if (stored)
                 {
+                    stored = false;
                     return storedItem;
                 }
                 else
@@ -25,9 +27,10 @@ namespace GUI_2022_23_01_VNBCC2.Models
             }
             set
             {
-                if (storedItem == null)
+                if (!stored)
                 {
                     storedItem = value;
+                    stored = true;
                 }
             }
         }

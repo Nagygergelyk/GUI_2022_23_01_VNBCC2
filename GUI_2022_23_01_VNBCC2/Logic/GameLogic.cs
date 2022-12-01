@@ -16,7 +16,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bread, meat, cheese, salad, bacon, onion, sauce, tomato, cucumber, oil, potato, glasses, drink
         }
 
-        public enum Actions { up, down, left, right, space, esc }
+        public enum Directions { up, down, left, right }
+        public enum Actions { space, esc }
         public Item[,] GameMatrix { get; set; }
         private Queue<string> levels;
         public Player[] ActualPlayers { get; set; }
@@ -53,10 +54,10 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 case 'T': return new Container() { item = Items.table, Image = "table.jpg"};
                 case 'G': return new Container() { item = Items.grill, Image = "table.jpg" };
                 case 'D': return new Container() { item = Items.deepfryer, Image = "deepfryer.jpg" };
-                case 'O': return new Container() { item = Items.output, Image = "output.jpg" };
+                case 'O': return new Output() { item = Items.output, Image = "output.jpg" };
                 case 'S': return new Container() { item = Items.start, Image = "start.jpg" };
                 case 'C': return new Container() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
-                case 'X': return new Container() { item = Items.trash, Image = "trash.jpg" };
+                case 'X': return new Trash() { item = Items.trash, Image = "trash.jpg" };
                 case 'P': return new Container() { item = Items.plate, Image = "plate.png" };
                 case '1': return new Container() { item = Items.bread, Image = "bread.png" };
                 case '2': return new Container() { item = Items.meat, Image = "meat.png" };
@@ -75,30 +76,72 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                     return new Item() { item = Items.floor, Image = "floor.jpg" };
             }
         }
-        public void Move(Actions action)
+
+        public void Action(Actions action)
         {
             switch (action)
             {
-                case Actions.up:
-                    break;
-                case Actions.down:
-                    break;
-                case Actions.left:
-                    break;
-                case Actions.right:
-                    break;
                 case Actions.space:
                     break;
                 case Actions.esc:
                     break;
-                default:
+            }
+        }
+
+        public void Move(Directions directions)
+        {
+            var coordinates = WhereAmI();
+            int i = coordinates[0];
+            int j = coordinates[1];
+            int iOld = coordinates[0];
+            int jOld = coordinates[1];
+            switch (directions)
+            {
+                case Directions.up:
+                    if (i-1 >= 0)
+                    {
+                        i--;
+                    }
                     break;
+                case Directions.down:
+                    if (i+1 < GameMatrix.GetLength(0))
+                    {
+                        i++;
+                    }
+                    break;
+                case Directions.left:
+                    if (j-1 >= 0)
+                    {
+                        j--;
+                    }
+                    break;
+                case Directions.right:
+                    if (j+1 < GameMatrix.GetLength(1))
+                    {
+                        j++;
+                    }
+                    break;
+            }
+            if (GameMatrix[i, j].item == Items.floor)
+            {
+                GameMatrix[iOld, jOld].item = Items.floor;
+                GameMatrix[i, j].item = Items.start;
             }
         }
 
         int[] WhereAmI()
         {
-            return default;
+            for (int i = 0; i < GameMatrix.GetLength(0); i++)
+            {
+                for (int j = 0; j < GameMatrix.GetLength(1); j++)
+                {
+                    if (GameMatrix[i,j].item == Items.start)
+                    {
+                        return new int[] { i, j };
+                    }
+                }
+            }
+            return new int[] { -1, -1 };
         }
     }
 }

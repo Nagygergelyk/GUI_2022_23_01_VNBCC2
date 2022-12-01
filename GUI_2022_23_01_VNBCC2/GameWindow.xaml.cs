@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GUI_2022_23_01_VNBCC2.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,20 @@ namespace GUI_2022_23_01_VNBCC2
         public GameWindow()
         {
             InitializeComponent();
+            GameLogic logic = new GameLogic();
+            display.SetupModel(logic);
+        }
+
+        private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.InvalidateVisual();
         }
     }
 }

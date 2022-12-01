@@ -25,11 +25,11 @@
             </Grid.ColumnDefinitions>
 
             <StackPanel Grid.Column="1">
+                <Button Content="Scoreboard" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding ScoreCommand}"/>
                 <Button Content="New game" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding CreateNewGameCommand}"/>
                 <Button Content="Load game" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding LoadGameCommand}"/>
                 <Button Content="Controls" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding ControlsCommand}"/>
-                <Button Content="Settings" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Command="{Binding SettingsCommand}"/>
-                <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Click="Button_Click"/>
+                <Button Content="Exit" Margin="10" Padding="5" FontSize="25" Background="Chocolate" Click="ExitButton_Click"/>
             </StackPanel>
 
             <Grid x:Name="infoGrid" Margin="10,0,10,10">

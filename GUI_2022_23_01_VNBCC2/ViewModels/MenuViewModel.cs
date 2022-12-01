@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Input;
 
 namespace GUI_2022_23_01_VNBCC2.ViewModels
@@ -30,15 +31,21 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
         }
 
         //Commands
+        public ICommand ScoreCommand { get; set; }
         public ICommand CreateNewGameCommand { get; set; }
         public ICommand LoadGameCommand { get; set; }
         public ICommand ControlsCommand { get; set; }
-        public ICommand SettingsCommand { get; set; }
-        //public ICommand ExitCommand { get; set; }
 
         public MenuViewModel(MenuLogic logic)
         {
             this.logic = logic;
+
+            this.Scoreboard = (logic.LoadScores() as BindingList<Player>);
+
+            ScoreCommand = new RelayCommand(() =>
+            {
+                this.MenuTitle = "Scoreboard";
+            });
 
             CreateNewGameCommand = new RelayCommand(() => {
                 logic.NewGame();
@@ -53,11 +60,6 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
             ControlsCommand = new RelayCommand(() =>
             {
                 this.MenuTitle = "Controls";
-            });
-
-            SettingsCommand = new RelayCommand(() =>
-            {
-                this.MenuTitle = "Settings";
             });
         }
 

@@ -6,7 +6,9 @@ namespace GUI_2022_23_01_VNBCC2.Logic
     public interface IMenuLogic
     {
         void NewGame();
-        IList<Player> Scoreoard();
+
         void Setup(IList<Player> players);
+        IList<Player> LoadScores();
+        void WriteScores(IList<Player> scores);
     }
 }

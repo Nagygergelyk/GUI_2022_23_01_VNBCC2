@@ -1,9 +1,12 @@
 ﻿using GUI_2022_23_01_VNBCC2.Models;
 using GUI_2022_23_01_VNBCC2.Services;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
@@ -41,9 +44,27 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             //newGameWindowService.CreateGame(ref actualPlayers);
         }
 
-        public IList<Player> Scoreoard()
+        public IList<Player> LoadScores()
         {
-            return default;
+            if (File.Exists("score.json"))
+            {
+                string scores = File.ReadAllText("score.json");
+                return JsonConvert.DeserializeObject<IList<Player>>(scores);
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public void WriteScores(IList<Player> scores)
+        {
+            if (scores != null)
+            {
+                string jsonContent = JsonConvert.SerializeObject(scores);
+                File.WriteAllText("score.json", jsonContent);
+            }
+            
         }
     }
 }

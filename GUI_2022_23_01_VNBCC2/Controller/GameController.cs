@@ -23,22 +23,22 @@ namespace GUI_2022_23_01_VNBCC2.Controller
             switch (k)
             {
                 case Key.Up:
-                    control.Move(Actions.up);
+                    control.Move(Directions.up);
                     break;
                 case Key.Down:
-                    control.Move(Actions.down);
+                    control.Move(Directions.down);
                     break;
                 case Key.Left:
-                    control.Move(Actions.left);
+                    control.Move(Directions.left);
                     break;
                 case Key.Right:
-                    control.Move(Actions.right);
+                    control.Move(Directions.right);
                     break;
                 case Key.Space:
-                    control.Move(Actions.space);
+                    control.Action(Actions.space);
                     break;
                 case Key.Escape:
-                    control.Move(Actions.esc);
+                    control.Action(Actions.esc);
                     break;
             }
         }

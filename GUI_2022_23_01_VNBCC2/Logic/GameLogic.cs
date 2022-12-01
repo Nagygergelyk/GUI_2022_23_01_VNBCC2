@@ -63,7 +63,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 case '2': return new Container() { item = Items.meat, Image = "meat.png" };
                 case '3': return new Container() { item = Items.cheese, Image = "cheese.png" };
                 case '4': return new Container() { item = Items.salad, Image = "salad.png" };
-                case '5': return new Container() { item = Items.bacon, Image = "Bacon.png" };
+                case '5': return new Container() { item = Items.bacon, Image = "bacon.png" };
                 case '6': return new Container() { item = Items.onion, Image = "onion.png" };
                 case '7': return new Container() { item = Items.sauce, Image = "sauce.png" };
                 case '8': return new Container() { item = Items.tomato, Image = "tomato.png" };

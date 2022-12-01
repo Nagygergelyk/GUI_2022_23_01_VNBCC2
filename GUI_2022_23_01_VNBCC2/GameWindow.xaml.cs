@@ -29,13 +29,13 @@ namespace GUI_2022_23_01_VNBCC2
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.Resize(new Size(game_grid.ActualWidth, game_grid.ActualHeight));
             display.InvalidateVisual();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            display.Resize(new Size(grid.ActualWidth, grid.ActualHeight));
+            display.Resize(new Size(game_grid.ActualWidth, game_grid.ActualHeight));
             display.InvalidateVisual();
         }
     }

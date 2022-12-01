@@ -37,6 +37,9 @@ namespace GUI_2022_23_01_VNBCC2.Controller
                 case Key.Space:
                     control.Move(Actions.space);
                     break;
+                case Key.Escape:
+                    control.Move(Actions.esc);
+                    break;
             }
         }
     }

@@ -15,10 +15,11 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         {
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bread, meat, cheese, salad, bacon, onion, sauce, tomato, cucumber, oil, potato, glasses, drink
         }
-        public enum Actions { up, down, left, right, space }
-        public Items[,] GameMatrix { get; set; }
+
+        public enum Actions { up, down, left, right, space, esc }
+        public Item[,] GameMatrix { get; set; }
         private Queue<string> levels;
-        public Player[] ActualPlayers{ get; set; }
+        public Player[] ActualPlayers { get; set; }
 
 
         public GameLogic()
@@ -35,43 +36,43 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         private void LoadNext(string path)
         {
             string[] lines = File.ReadAllLines(path);
-            GameMatrix = new Items[12, 9];
+            GameMatrix = new Item[12, 9];
             for (int i = 0; i < GameMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < GameMatrix.GetLength(1); j++)
                 {
-                    GameMatrix[i, j] = ConvertToEnum(lines[i][j]);
+                    GameMatrix[i, j] = ConvertToItem(lines[i][j]);
                 }
             }
 
         }
-        private Items ConvertToEnum(char v)
+        private Item ConvertToItem(char v)
         {
             switch (v)
             {
-                case 'T': return Items.table;
-                case 'G': return Items.grill;
-                case 'D': return Items.deepfryer;
-                case 'O': return Items.output;
-                case 'S': return Items.start;
-                case 'C': return Items.cuttingboard;
-                case 'X': return Items.trash;
-                case 'P': return Items.plate;
-                case '1': return Items.bread;
-                case '2': return Items.meat;
-                case '3': return Items.cheese;
-                case '4': return Items.salad;
-                case '5': return Items.bacon;
-                case '6': return Items.onion;
-                case '7': return Items.sauce;
-                case '8': return Items.tomato;
-                case '9': return Items.cucumber;
-                case 'A': return Items.oil;
-                case 'B': return Items.potato;
-                case 'E': return Items.glasses;
-                case 'H': return Items.drink;
+                case 'T': return new Container() { item = Items.table, Image = "table.jpg"};
+                case 'G': return new Container() { item = Items.grill, Image = "table.jpg" };
+                case 'D': return new Container() { item = Items.deepfryer, Image = "deepfryer.jpg" };
+                case 'O': return new Container() { item = Items.output, Image = "output.jpg" };
+                case 'S': return new Container() { item = Items.start, Image = "start.jpg" };
+                case 'C': return new Container() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
+                case 'X': return new Container() { item = Items.trash, Image = "trash.jpg" };
+                case 'P': return new Container() { item = Items.plate, Image = "plate.png" };
+                case '1': return new Container() { item = Items.bread, Image = "bread.png" };
+                case '2': return new Container() { item = Items.meat, Image = "meat.png" };
+                case '3': return new Container() { item = Items.cheese, Image = "cheese.png" };
+                case '4': return new Container() { item = Items.salad, Image = "salad.png" };
+                case '5': return new Container() { item = Items.bacon, Image = "Bacon.png" };
+                case '6': return new Container() { item = Items.onion, Image = "onion.png" };
+                case '7': return new Container() { item = Items.sauce, Image = "sauce.png" };
+                case '8': return new Container() { item = Items.tomato, Image = "tomato.png" };
+                case '9': return new Container() { item = Items.cucumber, Image = "cucumber.png" };
+                case 'A': return new Container() { item = Items.oil, Image = "oil.png" };
+                case 'B': return new Container() { item = Items.potato, Image = "potato.png" };
+                case 'E': return new Container() { item = Items.glasses, Image = "glasses.png" };
+                case 'H': return new Container() { item = Items.drink, Image = "drink.png" };
                 default:
-                    return Items.floor;
+                    return new Item() { item = Items.floor, Image = "floor.jpg" };
             }
         }
         public void Move(Actions action)
@@ -87,6 +88,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 case Actions.right:
                     break;
                 case Actions.space:
+                    break;
+                case Actions.esc:
                     break;
                 default:
                     break;

@@ -38,7 +38,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         private void LoadNext(string path)
         {
             string[] lines = File.ReadAllLines(path);
-            GameMatrix = new Item[12, 9];
+            GameMatrix = new Item[9, 12];
             for (int i = 0; i < GameMatrix.GetLength(0); i++)
             {
                 for (int j = 0; j < GameMatrix.GetLength(1); j++)

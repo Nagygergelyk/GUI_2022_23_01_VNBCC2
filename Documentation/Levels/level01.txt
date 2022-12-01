@@ -7,5 +7,3 @@ T	f	f	f	f	f	S	f	f	f	f	G
 T	f	f	f	f	f	f	f	f	f	f	T
 T	f	f	f	f	f	f	f	f	f	f	4
 T	C	C	1	C	C	2	C	C	T	T	T
-
-

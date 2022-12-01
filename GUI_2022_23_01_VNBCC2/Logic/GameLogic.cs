@@ -13,7 +13,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
     {
         public enum Items
         {
-            table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bread, meat, cheese, salad, bacon, onion, sauce, tomato, cucumber, oil, potato, glasses, drink
+            table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bunContainer, pattyContainer, cheeseContainer, lettuceContainer, baconContainer, onionContainer, sauceContainer,
+            tomatoContainer, cucumberContainer, oilContainer, potatoContainer, glassContainer, drinkTap
         }
 
         public enum Directions { up, down, left, right }
@@ -52,26 +53,26 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             switch (v)
             {
                 case 'T': return new Container() { item = Items.table, Image = "table.jpg"};
-                case 'G': return new Container() { item = Items.grill, Image = "table.jpg" };
+                case 'G': return new Container() { item = Items.grill, Image = "grill.jpg" };
                 case 'D': return new Container() { item = Items.deepfryer, Image = "deepfryer.jpg" };
                 case 'O': return new Output() { item = Items.output, Image = "output.jpg" };
-                case 'S': return new Container() { item = Items.start, Image = "start.jpg" };
+                case 'S': return new Container() { item = Items.start, Image = "player1.jpg" };
                 case 'C': return new Container() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
                 case 'X': return new Trash() { item = Items.trash, Image = "trash.jpg" };
-                case 'P': return new Container() { item = Items.plate, Image = "plate.png" };
-                case '1': return new Container() { item = Items.bread, Image = "bread.png" };
-                case '2': return new Container() { item = Items.meat, Image = "meat.png" };
-                case '3': return new Container() { item = Items.cheese, Image = "cheese.png" };
-                case '4': return new Container() { item = Items.salad, Image = "salad.png" };
-                case '5': return new Container() { item = Items.bacon, Image = "bacon.png" };
-                case '6': return new Container() { item = Items.onion, Image = "onion.png" };
-                case '7': return new Container() { item = Items.sauce, Image = "sauce.png" };
-                case '8': return new Container() { item = Items.tomato, Image = "tomato.png" };
-                case '9': return new Container() { item = Items.cucumber, Image = "cucumber.png" };
-                case 'A': return new Container() { item = Items.oil, Image = "oil.png" };
-                case 'B': return new Container() { item = Items.potato, Image = "potato.png" };
-                case 'E': return new Container() { item = Items.glasses, Image = "glasses.png" };
-                case 'H': return new Container() { item = Items.drink, Image = "drink.png" };
+                case 'P': return new Container() { item = Items.plate, Image = "plateOnTable.jpg" };
+                case '1': return new Container() { item = Items.bunContainer, Image = "bunContainer.jpg" };
+                case '2': return new Container() { item = Items.pattyContainer, Image = "pattyContainer.jpg" };
+                case '3': return new Container() { item = Items.cheeseContainer, Image = "cheeseContainer.jpg" };
+                case '4': return new Container() { item = Items.lettuceContainer, Image = "lettuceContainer.jpg" };
+                case '5': return new Container() { item = Items.baconContainer, Image = "baconContainer.jpg" };
+                case '6': return new Container() { item = Items.onionContainer, Image = "onionContainer.jpg" };
+                case '7': return new Container() { item = Items.sauceContainer, Image = "sauceContainer.jpg" };
+                case '8': return new Container() { item = Items.tomatoContainer, Image = "tomatoContainer.jpg" };
+                case '9': return new Container() { item = Items.cucumberContainer, Image = "cucumberContainer.jpg" };
+                case 'A': return new Container() { item = Items.oilContainer, Image = "oilContainer.jpg" };
+                case 'B': return new Container() { item = Items.potatoContainer, Image = "potatoContainer.jpg" };
+                case 'E': return new Container() { item = Items.glassContainer, Image = "glassContainer.jpg" };
+                case 'H': return new Container() { item = Items.drinkTap, Image = "drinkTap.jpg" };
                 default:
                     return new Item() { item = Items.floor, Image = "floor.jpg" };
             }

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         xmlns:vm="clr-namespace:GUI_2022_23_01_VNBCC2.ViewModels"
         mc:Ignorable="d"
-        Title="OECOOKED" Height="450" Width="800">
+        Title="OECOOKED" Height="450" Width="800" WindowStyle="None">
     <Window.DataContext>
         <vm:MenuViewModel/>
     </Window.DataContext>

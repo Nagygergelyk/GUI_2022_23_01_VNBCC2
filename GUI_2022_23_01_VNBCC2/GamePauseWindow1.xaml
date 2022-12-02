@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         mc:Ignorable="d"
-        Title="GamePauseWindow1" Height="200" Width="300">
+        Title="GamePauseWindow1" Height="200" Width="300" WindowStyle="None">
     <Grid Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>

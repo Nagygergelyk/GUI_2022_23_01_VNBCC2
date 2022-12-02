@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         xmlns:renderer="clr-namespace:GUI_2022_23_01_VNBCC2.Renderer"
         mc:Ignorable="d"
-        Title="OECOOKED" Height="450" Width="800" KeyDown="Window_KeyDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded"> 
+        Title="OECOOKED" Height="450" Width="800" KeyDown="Window_KeyDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None"> 
     <Grid x:Name="grid" Background="Bisque">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>

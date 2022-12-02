@@ -23,10 +23,10 @@ namespace GUI_2022_23_01_VNBCC2
     {
         GameController controller;
 
-        public GameWindow()
+        public GameWindow(GameLogic logic)
         {
             InitializeComponent();
-            GameLogic logic = new GameLogic();
+            //GameLogic logic = new GameLogic();
             display.SetupModel(logic);
             controller = new GameController(logic);
         }

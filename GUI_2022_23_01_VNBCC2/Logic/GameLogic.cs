@@ -19,13 +19,16 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
         public enum Directions { up, down, left, right }
         public enum Actions { space, esc }
+        private IMenuLogic menuLogic;
         public Item[,] GameMatrix { get; set; }
         private Queue<string> levels;
         public Player[] ActualPlayers { get; set; }
 
 
-        public GameLogic()
+        public GameLogic(IMenuLogic menuLogic)
         {
+            this.menuLogic = menuLogic;
+
             levels = new Queue<string>();
             var lvls = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
             foreach (var item in lvls)
@@ -52,12 +55,12 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         {
             switch (v)
             {
-                case 'T': return new Container() { item = Items.table, Image = "table.jpg"};
-                case 'G': return new Container() { item = Items.grill, Image = "grill.jpg" };
-                case 'D': return new Container() { item = Items.deepfryer, Image = "deepfryer.jpg" };
-                case 'O': return new Output() { item = Items.output, Image = "output.jpg" };
-                case 'S': return new Container() { item = Items.start, Image = "player1.jpg" };
-                case 'C': return new Container() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
+                case 'T': return new Storage() { item = Items.table, Image = "table.jpg" };
+                case 'G': return new ItemOutput() { item = Items.grill, Image = "grill.jpg" };
+                case 'D': return new ItemOutput() { item = Items.deepfryer, Image = "deepfryer.jpg" };
+                case 'O': return new Item() { item = Items.output, Image = "output.jpg" };
+                case 'S': return new Item() { item = Items.start, Image = "player1.jpg" };
+                case 'C': return new ItemOutput() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
                 case 'X': return new Trash() { item = Items.trash, Image = "trash.jpg" };
                 case 'P': return new Container() { item = Items.plate, Image = "plateOnTable.jpg" };
                 case '1': return new Container() { item = Items.bunContainer, Image = "bunContainer.jpg" };
@@ -72,7 +75,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 case 'A': return new Container() { item = Items.oilContainer, Image = "oilContainer.jpg" };
                 case 'B': return new Container() { item = Items.potatoContainer, Image = "potatoContainer.jpg" };
                 case 'E': return new Container() { item = Items.glassContainer, Image = "glassContainer.jpg" };
-                case 'H': return new Container() { item = Items.drinkTap, Image = "drinkTap.jpg" };
+                case 'H': return new ItemOutput() { item = Items.drinkTap, Image = "drinkTap.jpg" };
                 default:
                     return new Item() { item = Items.floor, Image = "floor.jpg" };
             }
@@ -83,8 +86,30 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             switch (action)
             {
                 case Actions.space:
+                    var coordinates = WhereAmI();
+                    for (int i = coordinates[0] - 1; i < coordinates[0] + 2; i++)
+                    {
+                        for (int j = coordinates[1] - 1; j < coordinates[1] + 2; j++)
+                        {
+                            if (GameMatrix[i, j] is Item && GameMatrix[i, j].item != Items.start)
+                            {
+                                GameMatrix[i, j].Interact();
+                                GameMatrix[i, j] = new Item() { item = Items.start, Image = "player2.jpg" };
+                            }
+                        }
+                    }
                     break;
                 case Actions.esc:
+                    GamePauseWindow1 gpw = new GamePauseWindow1();
+                    if (gpw.ShowDialog() == false)
+                    {
+                        gpw.Close();
+                    }
+                    else
+                    {
+                        gpw.Close();
+                        menuLogic.ExitGame();
+                    }
                     break;
             }
         }
@@ -99,25 +124,25 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             switch (directions)
             {
                 case Directions.up:
-                    if (i-1 >= 0)
+                    if (i - 1 >= 0)
                     {
                         i--;
                     }
                     break;
                 case Directions.down:
-                    if (i+1 < GameMatrix.GetLength(0))
+                    if (i + 1 < GameMatrix.GetLength(0))
                     {
                         i++;
                     }
                     break;
                 case Directions.left:
-                    if (j-1 >= 0)
+                    if (j - 1 >= 0)
                     {
                         j--;
                     }
                     break;
                 case Directions.right:
-                    if (j+1 < GameMatrix.GetLength(1))
+                    if (j + 1 < GameMatrix.GetLength(1))
                     {
                         j++;
                     }
@@ -125,7 +150,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             }
             if (GameMatrix[i, j].item == Items.floor)
             {
-                GameMatrix[iOld, jOld] = new Item() { item = Items.floor, Image = "floor.jpg"};
+                GameMatrix[iOld, jOld] = new Item() { item = Items.floor, Image = "floor.jpg" };
                 GameMatrix[i, j] = new Item() { item = Items.start, Image = "player1.jpg" };
             }
         }
@@ -136,7 +161,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             {
                 for (int j = 0; j < GameMatrix.GetLength(1); j++)
                 {
-                    if (GameMatrix[i,j].item == Items.start)
+                    if (GameMatrix[i, j].item == Items.start)
                     {
                         return new int[] { i, j };
                     }

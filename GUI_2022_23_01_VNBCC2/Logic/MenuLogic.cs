@@ -16,6 +16,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         private INewGameWindowService newGameWindowService;
         private Player[] actualPlayers;
         private List<Player> players;
+        private GameWindow gw;
+        private GameLogic gameLogic;
 
         public MenuLogic()
         {
@@ -37,7 +39,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             NewGameWindow ngw = new NewGameWindow(actualPlayers);
             if (ngw.ShowDialog() == true)
             {
-                GameWindow gw = new GameWindow();
+                gameLogic = new GameLogic(this);
+                gw = new GameWindow(gameLogic);
                 gw.ShowDialog();
             }
             ;
@@ -65,6 +68,11 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 File.WriteAllText("score.json", jsonContent);
             }
             
+        }
+
+        public void ExitGame()
+        {
+            gw.Close();
         }
     }
 }

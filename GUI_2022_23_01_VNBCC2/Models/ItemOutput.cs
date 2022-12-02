@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Models
 {
-    public class Output : Item
+    public class ItemOutput : Item
     {
 
     }

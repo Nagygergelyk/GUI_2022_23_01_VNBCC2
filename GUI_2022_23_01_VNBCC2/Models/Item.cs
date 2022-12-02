@@ -11,5 +11,10 @@ namespace GUI_2022_23_01_VNBCC2.Models
     {
         public Items item { get; set; }
         public string Image { get; set; }
+
+        public virtual void Interact()
+        {
+
+        }
     }
 }

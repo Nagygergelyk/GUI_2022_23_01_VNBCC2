@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Models
 {
-    public class Storage : Item
+    public class Start : Item
     {
-        private Item storedItem;
-        private bool stored = false;
-        
-        public Item StoredItem
+        private Item hand;
+        private bool isEmpty = true;
+        public Item Hand
         {
             get
             {
-                if (stored)
+                if (!isEmpty)
                 {
-                    stored = false;
-                    return storedItem;
+                    isEmpty = true;
+                    return hand;
                 }
                 else
                 {
@@ -27,10 +26,10 @@ namespace GUI_2022_23_01_VNBCC2.Models
             }
             set
             {
-                if (!stored && value != null)
+                if (isEmpty && value != null)
                 {
-                    storedItem = value;
-                    stored = true;
+                    isEmpty = false;
+                    hand = value;
                 }
             }
         }

@@ -5,23 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         mc:Ignorable="d"
-        Title="GamePauseWindow1" Height="200" Width="300" WindowStyle="None">
-    <Grid Background="Bisque">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
-            <ColumnDefinition Width="1*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="5*"/>
-        </Grid.RowDefinitions>
+        Title="GamePauseWindow1" Height="500" Width="700" WindowStyle="None" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Border BorderThickness="5" BorderBrush="Chocolate">
+        <Grid Background="Bisque">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="5*"/>
+            </Grid.RowDefinitions>
 
-        <Label Content="PAUSE" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" Foreground="Chocolate"/>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button Content="Continue" Margin="15" FontSize="20" Background="Chocolate" Click="Continue_Click"/>
-            <Button Content="Exit" Margin="15" FontSize="20" Background="Chocolate" Click="Exit_Click"/>
-        </StackPanel>
+            <Label Content="PAUSE" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="70" Foreground="Chocolate"/>
+            <StackPanel Grid.Row="1" Grid.Column="1">
+                <Button Content="Continue" Margin="20" FontSize="35" Background="Chocolate" Click="Continue_Click"/>
+                <Button Content="Exit" Margin="20" FontSize="35" Background="Chocolate" Click="Exit_Click"/>
+            </StackPanel>
 
-    </Grid>
+        </Grid>
+    </Border>
 </Window>

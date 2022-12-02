@@ -26,7 +26,6 @@ namespace GUI_2022_23_01_VNBCC2
         public NewGameWindow(Player[] players)
         {
             InitializeComponent();
-
             this.players = players;
         }
 

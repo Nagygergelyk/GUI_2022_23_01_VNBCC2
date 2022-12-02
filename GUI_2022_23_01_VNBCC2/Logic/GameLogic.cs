@@ -55,14 +55,14 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         {
             switch (v)
             {
-                case 'T': return new Storage() { item = Items.table, Image = "table.jpg" };
+                case 'T': return new Item() { item = Items.table, Image = "table.jpg" };
                 case 'G': return new ItemOutput() { item = Items.grill, Image = "grill.jpg" };
                 case 'D': return new ItemOutput() { item = Items.deepfryer, Image = "deepfryer.jpg" };
                 case 'O': return new Item() { item = Items.output, Image = "output.jpg" };
                 case 'S': return new Item() { item = Items.start, Image = "player1.jpg" };
                 case 'C': return new ItemOutput() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
                 case 'X': return new Trash() { item = Items.trash, Image = "trash.jpg" };
-                case 'P': return new Container() { item = Items.plate, Image = "plateOnTable.jpg" };
+                case 'P': return new Storage() { item = Items.plate, Image = "plateOnTable.jpg" };
                 case '1': return new Container() { item = Items.bunContainer, Image = "bunContainer.jpg" };
                 case '2': return new Container() { item = Items.pattyContainer, Image = "pattyContainer.jpg" };
                 case '3': return new Container() { item = Items.cheeseContainer, Image = "cheeseContainer.jpg" };
@@ -93,7 +93,22 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                         {
                             if (GameMatrix[i, j] is Item && GameMatrix[i, j].item != Items.start)
                             {
-                                GameMatrix[i, j].Interact();
+                                if (GameMatrix[i, j] is Container)
+                                {
+                                    (GameMatrix[coordinates[0], coordinates[0]] as Start).Hand = (GameMatrix[i, j] as Container).StoredItem;
+                                }
+                                else if (GameMatrix[i, j] is Storage)
+                                {
+
+                                }
+                                else if (GameMatrix[i, j] is Trash)
+                                {
+
+                                }
+                                else if (GameMatrix[i, j] is ItemOutput)
+                                {
+
+                                }
                             }
                         }
                     }

@@ -125,8 +125,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             }
             if (GameMatrix[i, j].item == Items.floor)
             {
-                GameMatrix[iOld, jOld].item = Items.floor;
-                GameMatrix[i, j].item = Items.start;
+                GameMatrix[iOld, jOld] = new Item() { item = Items.floor, Image = "floor.jpg"};
+                GameMatrix[i, j] = new Item() { item = Items.start, Image = "player1.jpg" };
             }
         }
 

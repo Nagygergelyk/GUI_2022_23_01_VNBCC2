@@ -94,7 +94,6 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                             if (GameMatrix[i, j] is Item && GameMatrix[i, j].item != Items.start)
                             {
                                 GameMatrix[i, j].Interact();
-                                GameMatrix[i, j] = new Item() { item = Items.start, Image = "player2.jpg" };
                             }
                         }
                     }

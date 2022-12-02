@@ -29,6 +29,30 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="5*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+                <Label Content="Output" Grid.Column="0" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Label Content="Recipe" Grid.Column="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                <Border Grid.Row="1" BorderBrush="Chocolate" BorderThickness="2">
+                    <ListBox x:Name="lb_output" Background="Bisque">
+                        
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2">
+                    <ListBox x:Name="lb_recipe" Background="Bisque" >
+
+                    </ListBox>
+                </Border>
+            </Grid>
+            
             <Grid x:Name="game_grid">
                 <renderer:Display x:Name="display"/>
             </Grid>

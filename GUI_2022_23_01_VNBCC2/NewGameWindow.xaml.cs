@@ -37,6 +37,7 @@ namespace GUI_2022_23_01_VNBCC2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
+
             if (cb_playerMode.IsChecked == true)
             {
                 int i = 0;

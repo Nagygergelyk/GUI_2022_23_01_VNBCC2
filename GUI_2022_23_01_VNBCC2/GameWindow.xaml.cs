@@ -1,4 +1,5 @@
-﻿using GUI_2022_23_01_VNBCC2.Logic;
+﻿using GUI_2022_23_01_VNBCC2.Controller;
+using GUI_2022_23_01_VNBCC2.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +21,14 @@ namespace GUI_2022_23_01_VNBCC2
     /// </summary>
     public partial class GameWindow : Window
     {
+        GameController controller;
+
         public GameWindow()
         {
             InitializeComponent();
             GameLogic logic = new GameLogic();
             display.SetupModel(logic);
+            controller = new GameController(logic);
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -36,6 +40,13 @@ namespace GUI_2022_23_01_VNBCC2
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             display.Resize(new Size(game_grid.ActualWidth, game_grid.ActualHeight));
+            display.InvalidateVisual();
+   
+        }
+
+        private void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            this.controller.PressedKey(e.Key);
             display.InvalidateVisual();
         }
     }

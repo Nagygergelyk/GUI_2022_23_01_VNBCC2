@@ -6,15 +6,15 @@
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
         xmlns:renderer="clr-namespace:GUI_2022_23_01_VNBCC2.Renderer"
         mc:Ignorable="d"
-        Title="OECOOKED" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded"> 
-    <Grid x:Name="game_grid" Background="Chocolate">
+        Title="OECOOKED" Height="450" Width="800" KeyDown="Window_KeyDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded"> 
+    <Grid x:Name="grid" Background="Chocolate">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="6*"/>
         </Grid.RowDefinitions>
 
         <Grid>
@@ -28,6 +28,8 @@
             <Label Content="3:25" Grid.Column="1" FontSize="30" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
         </Grid>
 
-        <renderer:Display x:Name="display" Grid.Column="0" Grid.Row="1"/>
+        <Grid x:Name="game_grid" Grid.Row="1">
+            <renderer:Display x:Name="display"/>
+        </Grid>
     </Grid>
 </Window>

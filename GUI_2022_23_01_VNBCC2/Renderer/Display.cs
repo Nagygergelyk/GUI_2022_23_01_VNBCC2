@@ -45,19 +45,19 @@ namespace GUI_2022_23_01_VNBCC2.Renderer
                         switch (model.GameMatrix[i, j].item)
                         {
                             case GameLogic.Items.table:
-                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i, j].Image), UriKind.RelativeOrAbsolute)));
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.floor:
-                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i, j].Image), UriKind.RelativeOrAbsolute)));
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.grill:
-                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i, j].Image), UriKind.RelativeOrAbsolute)));
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.deepfryer:
-                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i, j].Image), UriKind.RelativeOrAbsolute)));
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.output:
-                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i, j].Image), UriKind.RelativeOrAbsolute)));
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.start:
                                 brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));

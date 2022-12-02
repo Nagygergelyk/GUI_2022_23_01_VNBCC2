@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace GUI_2022_23_01_VNBCC2
 {
@@ -22,13 +23,26 @@ namespace GUI_2022_23_01_VNBCC2
     public partial class GameWindow : Window
     {
         GameController controller;
+        DateTime startTime;
 
         public GameWindow(GameLogic logic)
         {
             InitializeComponent();
+            startTime = DateTime.Now;
             //GameLogic logic = new GameLogic();
             display.SetupModel(logic);
             controller = new GameController(logic);
+
+            DispatcherTimer dt = new DispatcherTimer();
+            dt.Interval = TimeSpan.FromMilliseconds(1);
+            dt.Tick += Dt_Tick;
+            dt.Start();
+        }
+
+        private void Dt_Tick(object sender, EventArgs e)
+        {
+            this.time.Content = (DateTime.Now - startTime);
+            display.InvalidateVisual();
         }
 
         private void Window_SizeChanged(object sender, SizeChangedEventArgs e)

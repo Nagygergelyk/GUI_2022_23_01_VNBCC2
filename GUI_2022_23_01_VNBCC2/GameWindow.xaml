@@ -21,7 +21,7 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Player Name" FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10" Foreground="Chocolate"/>
-            <Label Content="3:25" Grid.Column="1" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+            <Label x:Name="time" Content="3:25" Grid.Column="1" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
         </Grid>
 
         <Grid Grid.Row="1">

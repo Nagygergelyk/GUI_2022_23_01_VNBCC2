@@ -4,9 +4,13 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
+        xmlns:vm="clr-namespace:GUI_2022_23_01_VNBCC2.ViewModels"
         xmlns:renderer="clr-namespace:GUI_2022_23_01_VNBCC2.Renderer"
         mc:Ignorable="d"
         Title="OECOOKED" Height="450" Width="800" KeyDown="Window_KeyDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None" Cursor="None">
+    <Window.DataContext>
+        <vm:GameWindowViewModel/>
+    </Window.DataContext>
     <Grid x:Name="grid" Background="Bisque">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -47,8 +51,14 @@
                     </ListBox>
                 </Border>
                 <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2">
-                    <ListBox x:Name="lb_recipe" Background="Bisque" >
-
+                    <ListBox x:Name="lb_recipe" Background="Bisque" ItemsSource="{Binding Ingredients}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
                     </ListBox>
                 </Border>
             </Grid>

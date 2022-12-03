@@ -15,7 +15,22 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
         {
             this.logic = logic;
         }
-
+        //not sure this is good
+        public List<string> Ingredients
+        {
+            get
+            {
+               /*for (int i = 0; i < logic.ingredients.Count; i++)
+                {
+                    return logic.ingredients[i];
+                }
+                foreach (var item in logic.ingredients)
+                {
+                    return item;
+                }*/
+                return logic.ingredients;
+            }
+        }
         public GameWindowViewModel() : this(new GameLogic(new MenuLogic()))
         {
 

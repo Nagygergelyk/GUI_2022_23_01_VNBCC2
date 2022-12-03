@@ -45,17 +45,18 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             }
             LoadNext(levels.Dequeue());
 
-            /*recipes = new Queue<string>();
+
+            recipes = new Queue<string>();
             var rcps = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Recipes"), "*.txt");
             foreach (var item in rcps)
             {
                 recipes.Enqueue(item);
             }
-            LoadNext(recipes.Dequeue());*/
-
+            LoadNextRecipe(recipes.Dequeue());
         }
         private void LoadNextRecipe(string path)
         {
+
             string line = File.ReadAllText(path);
             ingredients = new List<string>();
             string[] split = line.Split(';');

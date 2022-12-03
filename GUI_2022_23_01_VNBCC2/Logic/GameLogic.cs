@@ -16,11 +16,16 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bunContainer, pattyContainer, cheeseContainer, lettuceContainer, baconContainer, onionContainer, sauceContainer,
             tomatoContainer, cucumberContainer, oilContainer, potatoContainer, glassContainer, drinkTap
         }
+        public enum Foods
+        {
+            Bun, Patty, Cheese, Lettuce, Bacon, Onion, Sauce, Tomato, Cucumber, Fries, Drink
+        }
 
         public enum Directions { up, down, left, right }
         public enum Actions { space, esc }
         private IMenuLogic menuLogic;
         public Item[,] GameMatrix { get; set; }
+        public List</*Foods*/string> ingredients;
         private Queue<string> levels;
         private Queue<string> recipes;
 
@@ -40,19 +45,25 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             }
             LoadNext(levels.Dequeue());
 
-            recipes = new Queue<string>();
+            /*recipes = new Queue<string>();
             var rcps = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Recipes"), "*.txt");
             foreach (var item in rcps)
             {
                 recipes.Enqueue(item);
             }
-            
+            LoadNext(recipes.Dequeue());*/
 
         }
         private void LoadNextRecipe(string path)
         {
-            string[] lines = File.ReadAllLines(path);
+            string line = File.ReadAllText(path);
+            ingredients = new List<string>();
+            string[] split = line.Split(';');
 
+            foreach (var item in split)
+            {
+                ingredients.Add(item);
+            }
 
         }
         private void LoadNext(string path)

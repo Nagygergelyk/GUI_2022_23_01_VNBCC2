@@ -1,0 +1,5 @@
+Bun;Patty;Cheese;Lettuce
+Bun;Patty;Cheese;Lettuce;Bacon
+Bun;Patty;Cheese;Lettuce;Bacon;Onion;Sauce
+Bun;Patty;Cheese;Lettuce;Bacon;Onion;Sauce;Tomato;Cucumber
+Bun;Patty;Cheese;Lettuce;Bacon;Onion;Sauce;Tomato;Cucumber;Fries;Drink

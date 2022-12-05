@@ -25,18 +25,18 @@ namespace GUI_2022_23_01_VNBCC2
     {
         GameController controller;
         DateTime startTime;
+        DispatcherTimer dt;
 
         public GameWindow(IGameLogic logic)
         {
             InitializeComponent();
 
             this.gwvm.SetUp(logic);
-
-            startTime = DateTime.Now;
             display.SetupModel(logic as IGameModel);
             controller = new GameController(logic as IGameControl);
 
-            DispatcherTimer dt = new DispatcherTimer();
+            startTime = DateTime.Now;
+            dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(1);
             dt.Tick += Dt_Tick;
             dt.Start();
@@ -63,7 +63,26 @@ namespace GUI_2022_23_01_VNBCC2
 
         private void Window_KeyDown(object sender, KeyEventArgs e)
         {
-            this.controller.PressedKey(e.Key);
+            if (e.Key == Key.Escape)
+            {
+                dt.Stop();
+                GamePauseWindow1 gpw = new GamePauseWindow1();
+                if (gpw.ShowDialog() == false)
+                {
+                    gpw.Close();
+                    dt.Tick += Dt_Tick;
+                    dt.Start();
+                }
+                else
+                {
+                    gpw.Close();
+                    this.controller.PressedKey(Key.Escape);
+                }
+            }
+            else
+            {
+                this.controller.PressedKey(e.Key);
+            }          
             display.InvalidateVisual();
         }
     }

@@ -146,16 +146,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                     }
                     break;
                 case Actions.esc:
-                    GamePauseWindow1 gpw = new GamePauseWindow1();
-                    if (gpw.ShowDialog() == false)
-                    {
-                        gpw.Close();
-                    }
-                    else
-                    {
-                        gpw.Close();
-                        menuLogic.ExitGame();
-                    }
+                    menuLogic.ExitGame();
                     break;
             }
         }

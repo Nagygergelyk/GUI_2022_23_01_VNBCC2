@@ -119,7 +119,18 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                     return new Item() { item = Items.floor, Image = "floor.jpg" };
             }
         }
-
+        public bool CompareOutput()
+        {
+            bool isEqual = Enumerable.SequenceEqual(Ingredients, ActualOutput);
+            if (isEqual)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public void Action(Actions action)
         {
             switch (action)

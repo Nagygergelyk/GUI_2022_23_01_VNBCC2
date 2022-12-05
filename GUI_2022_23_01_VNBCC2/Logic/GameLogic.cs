@@ -13,6 +13,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 {
     public class GameLogic : IGameModel, IGameControl, IGameLogic
     {
+        IMessenger messenger;
+
         public enum Items
         {
             table, floor, grill, deepfryer, output, start, cuttingboard, trash, plate, bunContainer, pattyContainer, cheeseContainer, lettuceContainer, baconContainer, onionContainer, sauceContainer,
@@ -27,16 +29,16 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
 
         private IMenuLogic menuLogic;
-        private IMessenger messenger;
         public Item[,] GameMatrix { get; set; }
         public List</*Foods*/string> Ingredients { get; set; }
         private Queue<string> levels;
         private Queue<string> recipes;
         public Player[] ActualPlayers { get; set; }
-
+        public string inHand;
         private Item hand;
         public Item Hand { get; set; }
         public List<string> ActualOutput { get; set; }
+
 
         public GameLogic(IMenuLogic menuLogic, IMessenger messenger)
         {
@@ -61,7 +63,9 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             {
                 recipes.Enqueue(item);
             }
-            LoadNextRecipe(recipes.Dequeue());
+            LoadNextRecipe(recipes.Dequeue().ToLower());
+
+            ActualOutput = new List<string>();
         }
 
         private void LoadNextRecipe(string path)
@@ -133,6 +137,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         }
         public void Action(Actions action)
         {
+
             switch (action)
             {
                 case Actions.space:
@@ -147,7 +152,8 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                                 {
                                     (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = new Item() { Image = (GameMatrix[i, j] as Container).StoredItem };
                                     this.Hand = new Item() { Image = (GameMatrix[i, j] as Container).StoredItem };
-                                    messenger.Send("Hand changed", "Hand");
+                                    inHand = (GameMatrix[i, j] as Container).StoredItem.ToString();
+                                    //messenger.Send("Hand changed", "HandInfo");
                                 }
                                 else if (GameMatrix[i, j] is Storage)
                                 {
@@ -157,15 +163,17 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                                 {
                                     (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = null;
                                     this.Hand = null;
-                                    messenger.Send("Hand changed", "Hand");
+                                    //messenger.Send("Hand changed", "HandInfo");
                                 }
                                 else if (GameMatrix[i, j] is ItemOutput)
                                 {
-                                    ActualOutput.Add((GameMatrix[coordinates[0], coordinates[1]] as Start).Hand.Image);
+                                    //ActualOutput.Add((GameMatrix[coordinates[0], coordinates[1]] as Start).Hand.Image);
+                                    ActualOutput.Add(inHand);
+                                    CompareOutput();
                                     (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = null;
                                     this.Hand = null;
-                                    messenger.Send("Output changed", "Out");
-                                    messenger.Send("Hand changed", "Hand");
+                                    //messenger.Send("Output changed", "OutInfo");
+                                    //messenger.Send("Hand changed", "HandInfo");
                                 }
                             }
                         }
@@ -215,6 +223,14 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             {
                 GameMatrix[iOld, jOld] = new Item() { item = Items.floor, Image = "floor.jpg" };
                 GameMatrix[i, j] = new Start() { item = Items.start, Image = "player1.jpg" };
+            }
+            if (CompareOutput())
+            {
+                if (levels.Count > 0)
+                {
+                    LoadNext(levels.Dequeue());
+                    LoadNextRecipe(recipes.Dequeue());
+                }
             }
         }
 

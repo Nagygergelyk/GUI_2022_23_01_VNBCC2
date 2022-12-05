@@ -1,6 +1,7 @@
 ﻿using GUI_2022_23_01_VNBCC2.Logic;
 using GUI_2022_23_01_VNBCC2.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.DependencyInjection;
 using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace GUI_2022_23_01_VNBCC2.ViewModels
 {
@@ -62,8 +64,22 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
         public List<string> ActualOutput { get; set; }
         public Item Hand { get; set; }
 
-        public GameWindowViewModel()
+        public static bool IsInDesignMode
         {
+            get
+            {
+                var prop = DesignerProperties.IsInDesignModeProperty;
+                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+            }
+        }
+
+        public GameWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IGameLogic>())
+        {
+
+        }
+        public GameWindowViewModel(IGameLogic logic)
+        {
+            this.logic = logic;
             Messenger.Register<GameWindowViewModel, string, string>(this, "Hand", (recipient, msg) =>
             {
                 this.Hand = logic.Hand;

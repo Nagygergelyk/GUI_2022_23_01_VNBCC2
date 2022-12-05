@@ -25,6 +25,7 @@ namespace GUI_2022_23_01_VNBCC2
     {
         GameController controller;
         DateTime startTime;
+        TimeSpan actualTime;
         DispatcherTimer dt;
 
         public GameWindow(IGameLogic logic)
@@ -44,7 +45,9 @@ namespace GUI_2022_23_01_VNBCC2
 
         private void Dt_Tick(object sender, EventArgs e)
         {
-            this.time.Content = (DateTime.Now - startTime);
+            actualTime = DateTime.Now - startTime;
+            this.time_min.Content = (actualTime.Minutes);
+            this.time_sec.Content = (actualTime.Seconds);
             display.InvalidateVisual();
         }
 
@@ -66,6 +69,7 @@ namespace GUI_2022_23_01_VNBCC2
             if (e.Key == Key.Escape)
             {
                 dt.Stop();
+
                 GamePauseWindow1 gpw = new GamePauseWindow1();
                 if (gpw.ShowDialog() == false)
                 {

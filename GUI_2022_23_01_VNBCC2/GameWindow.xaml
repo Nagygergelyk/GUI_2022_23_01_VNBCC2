@@ -25,7 +25,15 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="{Binding ActualPlayer1.Name}" FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10" Foreground="Chocolate"/>
-            <Label x:Name="time" Content="3:25" Grid.Column="1" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="time_min" Content="3:25" Grid.Column="0" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+                <Label x:Name="time_sec" Content="3:25" ContentStringFormat=": {0}" Grid.Column="1" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+            </Grid>
         </Grid>
 
         <Grid Grid.Row="1">

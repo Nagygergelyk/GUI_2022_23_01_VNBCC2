@@ -40,18 +40,24 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="5*"/>
                     <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+
                 </Grid.RowDefinitions>
-                <Label Content="Output" Grid.Column="0" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Label Content="Recipe" Grid.Column="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
-                <Border Grid.Row="1" BorderBrush="Chocolate" BorderThickness="2">
+                <Label Content="Output" Grid.Column="0" Grid.Row="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Recipe" Grid.Column="1" Grid.Row="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Hand" Grid.Column="0" Grid.Row="2" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Grill" Grid.Column="1" Grid.Row="2" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+
+
+                <Border Grid.Row="1" BorderBrush="Chocolate" BorderThickness="2"  Margin="20,42,20,5">
                     <ListBox x:Name="lb_output" Background="Bisque">
                         
                     </ListBox>
                 </Border>
-                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2">
-                    <ListBox x:Name="lb_recipe" Background="Bisque" ItemsSource="{Binding Ingredients}">
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2"  Margin="20,42,20,5">
+                    <ListBox x:Name="lb_recipe" Background="Bisque" ItemsSource="{Binding Ingredients}" FontSize="20">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
@@ -59,6 +65,16 @@
                                 </StackPanel>
                             </DataTemplate>
                         </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Chocolate" BorderThickness="2" Margin="20,42,20,5">
+                    <ListBox x:Name="lb_hand" Background="Bisque" Padding="5">
+
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2" Margin="20,42,20,5">
+                    <ListBox x:Name="lb_grill" Background="Bisque" Padding="5">
+
                     </ListBox>
                 </Border>
             </Grid>

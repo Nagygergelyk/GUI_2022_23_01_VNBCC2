@@ -1,4 +1,6 @@
 ﻿using GUI_2022_23_01_VNBCC2.Models;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,16 +27,21 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
 
         private IMenuLogic menuLogic;
+        private IMessenger messenger;
         public Item[,] GameMatrix { get; set; }
         public List</*Foods*/string> Ingredients { get; set; }
         private Queue<string> levels;
         private Queue<string> recipes;
         public Player[] ActualPlayers { get; set; }
 
+        private Item hand;
+        public Item Hand { get; set; }
+        public List<string> ActualOutput { get; set; }
 
-        public GameLogic(IMenuLogic menuLogic)
+        public GameLogic(IMenuLogic menuLogic, IMessenger messenger)
         {
             this.menuLogic = menuLogic;
+            this.messenger = messenger;
             //this.ActualPlayers = players;
             this.ActualPlayers = menuLogic.ActualPlayers;
 
@@ -88,11 +95,11 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             switch (v)
             {
                 case 'T': return new Item() { item = Items.table, Image = "table.jpg" };
-                case 'G': return new ItemOutput() { item = Items.grill, Image = "grill.jpg" };
-                case 'D': return new ItemOutput() { item = Items.deepfryer, Image = "deepfryer.jpg" };
-                case 'O': return new Item() { item = Items.output, Image = "output.jpg" };
-                case 'S': return new Item() { item = Items.start, Image = "player1.jpg" };
-                case 'C': return new ItemOutput() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
+                case 'G': return new Item() { item = Items.grill, Image = "grill.jpg" };
+                case 'D': return new Item() { item = Items.deepfryer, Image = "deepfryer.jpg" };
+                case 'O': return new ItemOutput() { item = Items.output, Image = "output.jpg" };
+                case 'S': return new Start() { item = Items.start, Image = "player1.jpg" };
+                case 'C': return new Item() { item = Items.cuttingboard, Image = "cuttingboard.jpg" };
                 case 'X': return new Trash() { item = Items.trash, Image = "trash.jpg" };
                 case 'P': return new Storage() { item = Items.plate, Image = "plateOnTable.jpg" };
                 case '1': return new Container() { item = Items.bunContainer, Image = "bunContainer.jpg" };
@@ -107,7 +114,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                 case 'A': return new Container() { item = Items.oilContainer, Image = "oilContainer.jpg" };
                 case 'B': return new Container() { item = Items.potatoContainer, Image = "potatoContainer.jpg" };
                 case 'E': return new Container() { item = Items.glassContainer, Image = "glassContainer.jpg" };
-                case 'H': return new ItemOutput() { item = Items.drinkTap, Image = "drinkTap.jpg" };
+                case 'H': return new Item() { item = Items.drinkTap, Image = "drinkTap.jpg" };
                 default:
                     return new Item() { item = Items.floor, Image = "floor.jpg" };
             }
@@ -127,19 +134,27 @@ namespace GUI_2022_23_01_VNBCC2.Logic
                             {
                                 if (GameMatrix[i, j] is Container)
                                 {
-                                    (GameMatrix[coordinates[0], coordinates[0]] as Start).Hand = (GameMatrix[i, j] as Container).StoredItem;
+                                    (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = new Item() { Image = (GameMatrix[i, j] as Container).StoredItem };
+                                    this.Hand = new Item() { Image = (GameMatrix[i, j] as Container).StoredItem };
+                                    messenger.Send("Hand changed", "Hand");
                                 }
                                 else if (GameMatrix[i, j] is Storage)
                                 {
-
+                                    (GameMatrix[i, j] as Storage).StoredItem = (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand;
                                 }
                                 else if (GameMatrix[i, j] is Trash)
                                 {
-
+                                    (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = null;
+                                    this.Hand = null;
+                                    messenger.Send("Hand changed", "Hand");
                                 }
                                 else if (GameMatrix[i, j] is ItemOutput)
                                 {
-
+                                    ActualOutput.Add((GameMatrix[coordinates[0], coordinates[1]] as Start).Hand.Image);
+                                    (GameMatrix[coordinates[0], coordinates[1]] as Start).Hand = null;
+                                    this.Hand = null;
+                                    messenger.Send("Output changed", "Out");
+                                    messenger.Send("Hand changed", "Hand");
                                 }
                             }
                         }
@@ -188,7 +203,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             if (GameMatrix[i, j].item == Items.floor)
             {
                 GameMatrix[iOld, jOld] = new Item() { item = Items.floor, Image = "floor.jpg" };
-                GameMatrix[i, j] = new Item() { item = Items.start, Image = "player1.jpg" };
+                GameMatrix[i, j] = new Start() { item = Items.start, Image = "player1.jpg" };
             }
         }
 

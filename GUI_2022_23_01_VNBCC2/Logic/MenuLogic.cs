@@ -1,5 +1,7 @@
 ﻿using GUI_2022_23_01_VNBCC2.Models;
 using GUI_2022_23_01_VNBCC2.Services;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -11,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
 {
-    public class MenuLogic : IMenuLogic
+    public class MenuLogic : ObservableObject, IMenuLogic
     {
         private INewGameWindowService newGameWindowService;
         private Player[] actualPlayers = new Player[2];
@@ -19,6 +21,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         private List<Player> players;
         private GameWindow gw;
         private GameLogic gameLogic;
+        IMessenger messenger;
 
         public MenuLogic()
         {
@@ -40,7 +43,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             NewGameWindow ngw = new NewGameWindow(ref actualPlayers);
             if (ngw.ShowDialog() == true)
             {
-                gameLogic = new GameLogic(this);
+                gameLogic = new GameLogic(this, messenger);
                 gw = new GameWindow(gameLogic);
                 gw.ShowDialog();
             }

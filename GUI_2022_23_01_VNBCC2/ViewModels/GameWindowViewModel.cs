@@ -1,6 +1,7 @@
 ﻿using GUI_2022_23_01_VNBCC2.Logic;
 using GUI_2022_23_01_VNBCC2.Models;
 using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -58,10 +59,21 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
                 OnPropertyChanged();
             }
         }
+        public List<string> ActualOutput { get; set; }
+        public Item Hand { get; set; }
 
         public GameWindowViewModel()
         {
-               
+            Messenger.Register<GameWindowViewModel, string, string>(this, "Hand", (recipient, msg) =>
+            {
+                this.Hand = logic.Hand;
+                OnPropertyChanged("Hand");
+            });
+            Messenger.Register<GameWindowViewModel, string, string>(this, "Out", (recipient, msg) =>
+            {
+                this.ActualOutput = logic.ActualOutput;
+                OnPropertyChanged("ActualOutput");
+            });
         }
 
         public void SetUp(IGameLogic logic)

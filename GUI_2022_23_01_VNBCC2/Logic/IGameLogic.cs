@@ -11,5 +11,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
         void Action(GameLogic.Actions action);
         void Move(GameLogic.Directions directions);
+        public Item Hand { get; set; }
+        List<string> ActualOutput { get; set; }
     }
 }

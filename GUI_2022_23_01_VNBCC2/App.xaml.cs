@@ -23,6 +23,7 @@ namespace GUI_2022_23_01_VNBCC2
             Ioc.Default.ConfigureServices(
                 new ServiceCollection()
                     .AddSingleton<IMenuLogic, MenuLogic>()
+                    .AddSingleton<IGameLogic, GameLogic>()
                     .AddSingleton<INewGameWindowService, NewGameViaWindow>()
                     .AddSingleton<IMessenger>(WeakReferenceMessenger.Default)
                     .BuildServiceProvider()

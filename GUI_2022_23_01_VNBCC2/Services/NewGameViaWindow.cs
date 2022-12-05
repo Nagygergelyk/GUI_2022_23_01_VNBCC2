@@ -11,7 +11,7 @@ namespace GUI_2022_23_01_VNBCC2.Services
     {
         public void CreateGame(ref Player[] players)
         {
-            new NewGameWindow(players).ShowDialog();
+            new NewGameWindow(ref players).ShowDialog();
         }
     }
 }

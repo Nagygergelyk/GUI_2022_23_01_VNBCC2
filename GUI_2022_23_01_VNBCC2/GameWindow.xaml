@@ -4,10 +4,98 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:GUI_2022_23_01_VNBCC2"
+        xmlns:vm="clr-namespace:GUI_2022_23_01_VNBCC2.ViewModels"
         xmlns:renderer="clr-namespace:GUI_2022_23_01_VNBCC2.Renderer"
         mc:Ignorable="d"
-        Title="OECOOKED" Height="450" Width="800" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded"> 
-    <Grid x:Name="grid">
-        <renderer:Display x:Name="display"/>
+        Title="OECOOKED" Height="450" Width="800" KeyDown="Window_KeyDown" SizeChanged="Window_SizeChanged" Loaded="Window_Loaded" WindowState="Maximized" WindowStyle="None" Cursor="None">
+    <Window.DataContext>
+        <vm:GameWindowViewModel x:Name="gwvm"/>
+    </Window.DataContext>
+    <Grid x:Name="grid" Background="Bisque">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="6*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Label Content="{Binding ActualPlayer1.Name}" FontSize="35" VerticalContentAlignment="Center" HorizontalContentAlignment="Left" Margin="10" Foreground="Chocolate"/>
+            <Grid Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="100"/>
+                </Grid.ColumnDefinitions>
+
+                <Label x:Name="time_min" Content="3:25" Grid.Column="0" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+                <Label x:Name="time_sec" Content="3:25" ContentStringFormat=": {0}" Grid.Column="1" FontSize="55" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Foreground="Chocolate"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="4*"/>
+                    <RowDefinition Height="1*"/>
+
+                </Grid.RowDefinitions>
+                <Label Content="Output" Grid.Column="0" Grid.Row="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Recipe" Grid.Column="1" Grid.Row="1" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Hand" Grid.Column="0" Grid.Row="2" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+                <Label Content="Grill" Grid.Column="1" Grid.Row="2" Foreground="Chocolate" FontSize="30" HorizontalContentAlignment="Center" VerticalContentAlignment="Top"/>
+
+
+                <Border Grid.Row="1" BorderBrush="Chocolate" BorderThickness="2"  Margin="20,42,20,5">
+                    <ListBox x:Name="lb_output" Background="Bisque" ItemsSource="{Binding ActualOutput}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="1" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2"  Margin="20,42,20,5">
+                    <ListBox x:Name="lb_recipe" Background="Bisque" ItemsSource="{Binding Ingredients}" FontSize="20">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="0" BorderBrush="Chocolate" BorderThickness="2" Margin="20,42,20,5">
+                    <ListBox x:Name="lb_hand" Background="Bisque" Padding="5" ItemsSource="{Binding Hand}">
+                        <Label Content="{Binding Hand.Image}"/>
+                    </ListBox>
+                </Border>
+                <Border Grid.Row="2" Grid.Column="1" BorderBrush="Chocolate" BorderThickness="2" Margin="20,42,20,5">
+                    <ListBox x:Name="lb_grill" Background="Bisque" Padding="5">
+
+                    </ListBox>
+                </Border>
+            </Grid>
+            
+            <Grid x:Name="game_grid">
+                <renderer:Display x:Name="display"/>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>

@@ -9,6 +9,7 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 {
     public interface IGameControl
     {
-        void Move(Actions action);
+        void Move(Directions direction);
+        void Action(Actions action);
     }
 }

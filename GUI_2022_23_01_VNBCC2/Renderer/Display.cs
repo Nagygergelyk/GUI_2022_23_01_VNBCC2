@@ -1,11 +1,13 @@
 ﻿using GUI_2022_23_01_VNBCC2.Logic;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace GUI_2022_23_01_VNBCC2.Renderer
 {
@@ -32,59 +34,90 @@ namespace GUI_2022_23_01_VNBCC2.Renderer
                 double rectWidth = size.Width / model.GameMatrix.GetLength(1);
                 double rectHeight = size.Height / model.GameMatrix.GetLength(0);
 
+                drawingContext.DrawRectangle(Brushes.Black, new Pen(Brushes.Black, 0),
+                    new Rect(0, 0, size.Width, size.Height));
+
                 for (int i = 0; i < model.GameMatrix.GetLength(0); i++)
                 {
                     for (int j = 0; j < model.GameMatrix.GetLength(1); j++)
                     {
-                        switch (model.GameMatrix[i, j])
+                        ImageBrush brush = new ImageBrush();
+                        switch (model.GameMatrix[i, j].item)
                         {
                             case GameLogic.Items.table:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.floor:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.grill:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.deepfryer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.output:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.start:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.cuttingboard:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.trash:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             case GameLogic.Items.plate:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.bread:
+                            case GameLogic.Items.bunContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.meat:
+                            case GameLogic.Items.pattyContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.cheese:
+                            case GameLogic.Items.cheeseContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.salad:
+                            case GameLogic.Items.lettuceContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.bacon:
+                            case GameLogic.Items.baconContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.onion:
+                            case GameLogic.Items.onionContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.sauce:
+                            case GameLogic.Items.sauceContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.tomato:
+                            case GameLogic.Items.tomatoContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.cucumber:
+                            case GameLogic.Items.cucumberContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.oil:
+                            case GameLogic.Items.oilContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.potato:
+                            case GameLogic.Items.potatoContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.glasses:
+                            case GameLogic.Items.glassContainer:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
-                            case GameLogic.Items.drink:
+                            case GameLogic.Items.drinkTap:
+                                brush = new ImageBrush(new BitmapImage(new Uri(Path.Combine("map_pics", model.GameMatrix[i,j].Image), UriKind.RelativeOrAbsolute)));
                                 break;
                             default:
                                 break;
                         }
+
+                        drawingContext.DrawRectangle(brush
+                                    , new Pen(Brushes.Black, 0),
+                                    new Rect(j * rectWidth, i * rectHeight, rectWidth, rectHeight)
+                                    );
                     }
                 }
             }

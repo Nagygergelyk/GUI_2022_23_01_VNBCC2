@@ -1,22 +1,31 @@
 ﻿using GUI_2022_23_01_VNBCC2.Models;
 using GUI_2022_23_01_VNBCC2.Services;
+using Microsoft.Toolkit.Mvvm.ComponentModel;
+using Microsoft.Toolkit.Mvvm.Messaging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
 {
-    public class MenuLogic : IMenuLogic
+    public class MenuLogic : ObservableObject, IMenuLogic
     {
         private INewGameWindowService newGameWindowService;
-        private Player[] actualPlayers;
+        private Player[] actualPlayers = new Player[2];
+        public Player[] ActualPlayers { get { return actualPlayers; } }
         private List<Player> players;
+        private GameWindow gw;
+        private GameLogic gameLogic;
+        IMessenger messenger;
 
         public MenuLogic()
         {
-            actualPlayers = new Player[2];
+            //actualPlayers = new Player[2];
         }
 
         public MenuLogic(INewGameWindowService newGameWindowService)
@@ -26,24 +35,48 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
         public void Setup(IList<Player> players)
         {
-
+            this.players = (players as List<Player>);
         }
 
         public void NewGame()
         {
-            NewGameWindow ngw = new NewGameWindow(actualPlayers);
+            NewGameWindow ngw = new NewGameWindow(ref actualPlayers);
             if (ngw.ShowDialog() == true)
             {
-                GameWindow gw = new GameWindow();
+                gameLogic = new GameLogic(this, messenger);
+                gw = new GameWindow(gameLogic);
                 gw.ShowDialog();
             }
             ;
             //newGameWindowService.CreateGame(ref actualPlayers);
         }
 
-        public IList<Player> Scoreoard()
+        public IList<Player> LoadScores()
         {
-            return default;
+            if (File.Exists("score.json"))
+            {
+                string scores = File.ReadAllText("score.json");
+                return JsonConvert.DeserializeObject<IList<Player>>(scores);
+            }
+            else
+            {
+                return default;
+            }
+        }
+
+        public void WriteScores(IList<Player> scores)
+        {
+            if (scores != null)
+            {
+                string jsonContent = JsonConvert.SerializeObject(scores);
+                File.WriteAllText("score.json", jsonContent);
+            }
+            
+        }
+
+        public void ExitGame()
+        {
+            gw.Close();
         }
     }
 }

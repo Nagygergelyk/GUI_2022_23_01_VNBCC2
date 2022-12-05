@@ -16,7 +16,7 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
 {
     public class MenuViewModel : ObservableRecipient
     {
-        MenuLogic logic;
+        IMenuLogic logic;
         public BindingList<Player> Players { get; set; } //contains players
         public BindingList<Player> Scoreboard { get; set; }
         string menuTitle = "Scoreboard";
@@ -36,7 +36,7 @@ namespace GUI_2022_23_01_VNBCC2.ViewModels
         public ICommand LoadGameCommand { get; set; }
         public ICommand ControlsCommand { get; set; }
 
-        public MenuViewModel(MenuLogic logic)
+        public MenuViewModel(IMenuLogic logic)
         {
             this.logic = logic;
 

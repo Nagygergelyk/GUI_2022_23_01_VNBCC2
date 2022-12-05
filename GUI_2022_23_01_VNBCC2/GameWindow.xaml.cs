@@ -1,5 +1,6 @@
 ﻿using GUI_2022_23_01_VNBCC2.Controller;
 using GUI_2022_23_01_VNBCC2.Logic;
+using GUI_2022_23_01_VNBCC2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,13 +26,15 @@ namespace GUI_2022_23_01_VNBCC2
         GameController controller;
         DateTime startTime;
 
-        public GameWindow(GameLogic logic)
+        public GameWindow(IGameLogic logic)
         {
             InitializeComponent();
+
+            this.gwvm.SetUp(logic);
+
             startTime = DateTime.Now;
-            //GameLogic logic = new GameLogic();
-            display.SetupModel(logic);
-            controller = new GameController(logic);
+            display.SetupModel(logic as IGameModel);
+            controller = new GameController(logic as IGameControl);
 
             DispatcherTimer dt = new DispatcherTimer();
             dt.Interval = TimeSpan.FromMilliseconds(1);

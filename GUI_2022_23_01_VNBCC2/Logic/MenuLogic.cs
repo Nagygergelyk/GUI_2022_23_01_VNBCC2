@@ -14,14 +14,15 @@ namespace GUI_2022_23_01_VNBCC2.Logic
     public class MenuLogic : IMenuLogic
     {
         private INewGameWindowService newGameWindowService;
-        private Player[] actualPlayers;
+        private Player[] actualPlayers = new Player[2];
+        public Player[] ActualPlayers { get { return actualPlayers; } }
         private List<Player> players;
         private GameWindow gw;
         private GameLogic gameLogic;
 
         public MenuLogic()
         {
-            actualPlayers = new Player[2];
+            //actualPlayers = new Player[2];
         }
 
         public MenuLogic(INewGameWindowService newGameWindowService)
@@ -31,12 +32,12 @@ namespace GUI_2022_23_01_VNBCC2.Logic
 
         public void Setup(IList<Player> players)
         {
-
+            this.players = (players as List<Player>);
         }
 
         public void NewGame()
         {
-            NewGameWindow ngw = new NewGameWindow(actualPlayers);
+            NewGameWindow ngw = new NewGameWindow(ref actualPlayers);
             if (ngw.ShowDialog() == true)
             {
                 gameLogic = new GameLogic(this);

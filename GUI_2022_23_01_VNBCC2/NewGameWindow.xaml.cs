@@ -23,7 +23,7 @@ namespace GUI_2022_23_01_VNBCC2
         Player[] players;
         public Player[] Players { get; set; }
 
-        public NewGameWindow(Player[] players)
+        public NewGameWindow(ref Player[] players)
         {
             InitializeComponent();
             this.players = players;
@@ -36,7 +36,6 @@ namespace GUI_2022_23_01_VNBCC2
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
             if (cb_playerMode.IsChecked == true)
             {
                 int i = 0;

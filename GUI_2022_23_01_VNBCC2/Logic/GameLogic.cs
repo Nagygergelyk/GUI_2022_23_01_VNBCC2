@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GUI_2022_23_01_VNBCC2.Logic
 {
-    public class GameLogic : IGameModel, IGameControl
+    public class GameLogic : IGameModel, IGameControl, IGameLogic
     {
         public enum Items
         {
@@ -20,21 +20,23 @@ namespace GUI_2022_23_01_VNBCC2.Logic
         {
             Bun, Patty, Cheese, Lettuce, Bacon, Onion, Sauce, Tomato, Cucumber, Fries, Drink
         }
-
         public enum Directions { up, down, left, right }
         public enum Actions { space, esc }
+
+
         private IMenuLogic menuLogic;
         public Item[,] GameMatrix { get; set; }
-        public List</*Foods*/string> ingredients;
+        public List</*Foods*/string> Ingredients { get; set; }
         private Queue<string> levels;
         private Queue<string> recipes;
-
         public Player[] ActualPlayers { get; set; }
 
 
         public GameLogic(IMenuLogic menuLogic)
         {
             this.menuLogic = menuLogic;
+            //this.ActualPlayers = players;
+            this.ActualPlayers = menuLogic.ActualPlayers;
 
             levels = new Queue<string>();
             var lvls = Directory.GetFiles(Path.Combine(Directory.GetCurrentDirectory(), "Levels"), "*.txt");
@@ -54,16 +56,17 @@ namespace GUI_2022_23_01_VNBCC2.Logic
             }
             LoadNextRecipe(recipes.Dequeue());
         }
+
         private void LoadNextRecipe(string path)
         {
 
             string line = File.ReadAllText(path);
-            ingredients = new List<string>();
+            Ingredients = new List<string>();
             string[] split = line.Split(';');
 
             foreach (var item in split)
             {
-                ingredients.Add(item);
+                Ingredients.Add(item);
             }
 
         }
